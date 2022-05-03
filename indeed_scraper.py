@@ -51,6 +51,8 @@ def location_data(soup):
 if __name__ == "__main__":
       
     # Data for URL
+    # Default values for now
+    # TODO
     job = "data+scientist"
     Location = "Vancouver%2C+BC"
     time = "7"
@@ -58,9 +60,12 @@ if __name__ == "__main__":
   
     soup = html_code(url)
 
-    job_res = job_data(soup)
-    com_res = company_data(soup)
-    location_res = location_data(soup)
+    while True:
+        job_res = job_data(soup)
+        com_res = company_data(soup)
+        location_res = location_data(soup)
+        if (len(job_res) != 0 and len(com_res) != 0 and len(location_res) != 0):
+            break
   
     for x in range(len(job_res)):
         print(f"Job Title: {job_res[x]} \n")
