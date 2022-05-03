@@ -61,11 +61,24 @@ def posted_data(soup):
             res.append(result[i])
     return res
 
+def job_url_data(soup):
+    data_str = ""
+    for item in soup.find_all("a", class_="jcs-JobTitle"):
+        data_str = data_str + "/n" + "https://ca.indeed.com"+ item['href']
+    result = data_str.split("/n")
+
+    res = []
+    for i in result:
+        if len(i) > 1:
+            res.append(i)
+    return res
+
 if __name__ == "__main__":
     job_res = []
     com_res = []
     location_res = []
     posted_res = []
+    url_res = []
       
     # Data for URL
     # Default values for now
@@ -86,11 +99,13 @@ if __name__ == "__main__":
             com_res_t = company_data(soup)
             location_res_t = location_data(soup)
             posted_res_t = posted_data(soup)
-            if (len(job_res_t) != 0 and len(com_res_t) != 0 and len(location_res_t) != 0 and len(posted_res_t) != 0):
+            url_res_t = job_url_data(soup)
+            if (len(job_res_t) != 0 and len(com_res_t) != 0 and len(location_res_t) != 0 and len(posted_res_t) != 0 and len(url_res_t) != 0):
                 job_res.extend(job_res_t)
                 com_res.extend(com_res_t)
                 location_res.extend(location_res_t)
                 posted_res.extend(posted_res_t)
+                url_res.extend(url_res_t)
                 retrieved = True
         
         # Avoid showing any jobs that are 30+ days old
@@ -103,6 +118,7 @@ if __name__ == "__main__":
         print(f"Company Name: {com_res[x]} \n")
         print(f"Location: {location_res[x]} \n")
         print(f"Posted: {posted_res[x]} \n")
+        print(f"URL: {url_res[x]} \n")
         print("--------------------------------------")
 
 # printing length of results for debug
@@ -110,4 +126,5 @@ if __name__ == "__main__":
     print(len(com_res))
     print(len(location_res))
     print(len(posted_res))
+    print(len(url_res))
 
