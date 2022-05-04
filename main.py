@@ -15,7 +15,7 @@ def html_code(url):
 def job_data(soup):
     data_str = ""
     for item in soup.find_all("a", class_="jcs-JobTitle"):
-        data_str = data_str + "/n" + item.get_text()
+        data_str = data_str + "/n" + "https://ca.indeed.com"+ item['href']
     result = data_str.split("/n")
 
     res = []
@@ -33,4 +33,4 @@ if __name__ == "__main__":
     url = "https://ca.indeed.com/jobs?q="+job+"&l="+Location+"&sort=date&start="+str(start)
     soup = html_code(url)
 
-    print(len(job_data(soup)))
+    print(job_data(soup))
