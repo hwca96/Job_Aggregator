@@ -57,9 +57,16 @@ def posted_data(soup):
     result = data_str.split("/n")
 
     res = []
-    for i in range(1, len(result)):
-        if len(result[i]) > 1:
-            res.append(result[i])
+    for i in result:
+        if len(i) > 1:
+            if "Just posted" in i or "Today" in i:
+                res.append(1)
+            elif "30+" in i:
+                res.append(30)
+            elif "Active" in i:
+                res.append(int(i.split(' ')[1]))
+            else:
+                res.append(int(i.split(' ')[0]))
     return res
 
 def job_url_data(soup):
@@ -84,8 +91,8 @@ def get_job_list(job_name: str, job_location: str):
     job_list = []
 
     # Data for URL
-    job = "data+scientist"
-    Location = "Vancouver%2C+BC"
+    job = job_name
+    Location = job_location
     start = 0
 
     while True:
@@ -100,6 +107,7 @@ def get_job_list(job_name: str, job_location: str):
             location_res_t = location_data(soup)
             posted_res_t = posted_data(soup)
             url_res_t = job_url_data(soup)
+
             if (len(job_res_t) != 0 and len(com_res_t) != 0 and len(location_res_t) != 0 and len(posted_res_t) != 0 and len(url_res_t) != 0):
                 job_res.extend(job_res_t)
                 com_res.extend(com_res_t)
@@ -109,27 +117,20 @@ def get_job_list(job_name: str, job_location: str):
                 retrieved = True
         
         # Avoid showing any jobs that are 30+ days old
-        if "30+ days" in posted_res[-1]:
+        if posted_res[-1] == 30:
             break
         start += 10
   
     for x in range(len(job_res)):
-        job = Job(job_res[x], com_res[x], location_res[x], url_res[x], posted_res[x])
+        job = Job(job_res[x], com_res[x], location_res[x], url_res[x], posted_res[x], "indeed")
         job_list.append(job)
-        return job_list
+
+    return job_list
 
 if __name__ == "__main__":
-    jobs =  get_job_list("test", "test")
+    jobs =  get_job_list("junior software", "Vancouver, BC")
     for x in jobs:
         print(x)
         print("------------------------------")
 
-        
-
-# # printing length of results for debug
-#     print(len(job_res))
-#     print(len(com_res))
-#     print(len(location_res))
-#     print(len(posted_res))
-#     print(len(url_res))
 

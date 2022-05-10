@@ -20,7 +20,6 @@ def html_code(url):
 def job_data(soup):
     temp = []
     res = []
-    data_str = ""
     for item in soup.find_all("span", class_ = "noctitle"):
         [temp.append(text) for text in item.stripped_strings]
 
@@ -69,8 +68,6 @@ def result_number(soup):
 
 def get_job_list(job_name: str, job_location: str):
     job_list = []
-    job_name = "cashier"
-    job_location = "Vancouver"
     page = 1
 
     base_url = f"https://www.jobbank.gc.ca/jobsearch/jobsearch?searchstring={job_name}&locationstring={job_location}&sort=D&page={page}"
@@ -93,12 +90,12 @@ def get_job_list(job_name: str, job_location: str):
             page += 1
 
             for x in range(len(job_res)):
-                job = Job(job_res[x], company_res[x], location_res[x], url_res[x], posted_res[x])
+                job = Job(job_res[x], company_res[x], location_res[x], url_res[x], posted_res[x], "jobbank")
                 job_list.append(job)
     return job_list
 
 if __name__ == "__main__":
-    jobs = get_job_list("cashier", "Vancouver")
+    jobs = get_job_list("cashier", "Vancouver, BC")
 
     for x in jobs:
         print(x)
