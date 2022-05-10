@@ -1,6 +1,8 @@
 import requests
 from bs4 import BeautifulSoup
 
+from job import Job
+
 def getData(url):
     req = requests.get(url)
     return req.text
@@ -72,22 +74,21 @@ def job_url_data(soup):
             res.append(i)
     return res
 
-if __name__ == "__main__":
+def get_job_list(job_name: str, job_location: str):
     job_res = []
     com_res = []
     location_res = []
     posted_res = []
     url_res = []
-      
+
+    job_list = []
+
     # Data for URL
-    # Default values for now
-    # TODO
     job = "data+scientist"
     Location = "Vancouver%2C+BC"
     start = 0
 
     while True:
-
         retrieved = False
         
         while not retrieved:
@@ -113,17 +114,22 @@ if __name__ == "__main__":
         start += 10
   
     for x in range(len(job_res)):
-        print(f"Job Title: {job_res[x]} \n")
-        print(f"Company Name: {com_res[x]} \n")
-        print(f"Location: {location_res[x]} \n")
-        print(f"Posted: {posted_res[x]} \n")
-        print(f"URL: {url_res[x]} \n")
-        print("--------------------------------------")
+        job = Job(job_res[x], com_res[x], location_res[x], url_res[x], posted_res[x])
+        job_list.append(job)
+        return job_list
 
-# printing length of results for debug
-    print(len(job_res))
-    print(len(com_res))
-    print(len(location_res))
-    print(len(posted_res))
-    print(len(url_res))
+if __name__ == "__main__":
+    jobs =  get_job_list("test", "test")
+    for x in jobs:
+        print(x)
+        print("------------------------------")
+
+        
+
+# # printing length of results for debug
+#     print(len(job_res))
+#     print(len(com_res))
+#     print(len(location_res))
+#     print(len(posted_res))
+#     print(len(url_res))
 
