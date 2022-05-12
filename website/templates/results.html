@@ -1,9 +1,23 @@
 {% extends "base.html" %} {% block title %} Home {% endblock %}
 {% block content %}
-<div>
-    {{search}}
-</div>
-<div>
-    {{location}}
+<div class="container-fluid">
+    <div class="row">
+    {%for i in data%}
+        <div class="card bg-light mb-3" style="max-width: 18rem;">
+            <div class="card-header">
+                From: {{i.source}}
+            </div>
+            <div class="card-body text-center">
+                <h5 class="card-title">{{i.title}}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">{{i.company}}</h6>
+                <p class="card-text">{{i.location}}</p>
+                <a href={{i.url}} class="btn btn-primary" target="_blank">Link</a>
+            </div>
+            <div class="card-footer">
+                <small class="text-muted">Posted {{i.posted}} Days Ago</small>
+            </div>
+        </div>
+    {%endfor%}
+    </div>
 </div>
 {% endblock %}

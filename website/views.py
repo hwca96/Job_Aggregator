@@ -16,7 +16,8 @@ def home():
 def results():
     search = request.args['search']
     location = request.args['location']
-    return render_template("results.html", search = search, location = location)
+    data = main_scraper.get_all_data(search, location)
+    return render_template("results.html", data = data)
 
 @views.route('/login', methods = ["POST", "GET"])
 def login():

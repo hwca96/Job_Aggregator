@@ -25,7 +25,7 @@ def job_data(soup):
 
     for s in temp:
         if s != "Verified" and not s.startswith("This job"):
-            res.append(s)
+            res.append(s.title())
 
     return res
 
@@ -90,7 +90,7 @@ def get_job_list(job_name: str, job_location: str):
             page += 1
 
             for x in range(len(job_res)):
-                job = Job(job_res[x], company_res[x], location_res[x], url_res[x], posted_res[x], "jobbank")
+                job = Job(job_res[x], company_res[x], location_res[x], url_res[x], posted_res[x], "Canada Job Bank")
                 job_list.append(job)
     return job_list
 

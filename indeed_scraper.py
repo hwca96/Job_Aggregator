@@ -59,7 +59,7 @@ def posted_data(soup):
     res = []
     for i in result:
         if len(i) > 1:
-            if "Just posted" in i or "Today" in i:
+            if "Just posted" in i or "Today" in i or "ongoing" in i:
                 res.append(1)
             elif "30+" in i:
                 res.append(30)
@@ -122,13 +122,13 @@ def get_job_list(job_name: str, job_location: str):
         start += 10
   
     for x in range(len(job_res)):
-        job = Job(job_res[x], com_res[x], location_res[x], url_res[x], posted_res[x], "indeed")
+        job = Job(job_res[x], com_res[x], location_res[x], url_res[x], posted_res[x], "Indeed")
         job_list.append(job)
 
     return job_list
 
 if __name__ == "__main__":
-    jobs =  get_job_list("junior software", "Vancouver, BC")
+    jobs =  get_job_list("cashier", "Vancouver, BC")
     for x in jobs:
         print(x)
         print("------------------------------")
