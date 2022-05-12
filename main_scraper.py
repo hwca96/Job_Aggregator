@@ -1,4 +1,3 @@
-from website import create_app
 import indeed_scraper, jobbank_scraper
 
 
@@ -12,7 +11,11 @@ def filter_source(job_list, source:str):
             res.append(x)
     return res
 
-
+def get_all_data(job_title, location):
+    data = indeed_scraper.get_job_list(job_title, location)
+    data.extend(jobbank_scraper.get_job_list(job_title, location))
+    sort_date(data)
+    return data
 
 if __name__ == "__main__":
     job_title = "junior software"

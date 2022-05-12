@@ -1,4 +1,5 @@
 from flask import Blueprint, redirect, render_template, request, url_for
+import main_scraper
 
 views = Blueprint("views", __name__)
 
@@ -6,14 +7,16 @@ views = Blueprint("views", __name__)
 def home():
     if request.method == "POST":
         search_words = request.form["search_words"]
-        return redirect(url_for(".results", search = search_words))
+        search_location = request.form["search_location"]
+        return redirect(url_for(".results", search = search_words, location = search_location))
     else:
         return render_template("home.html")
 
 @views.route('/results', methods = ["POST", "GET"])
 def results():
     search = request.args['search']
-    return render_template("results.html", search = search)
+    location = request.args['location']
+    return render_template("results.html", search = search, location = location)
 
 @views.route('/login', methods = ["POST", "GET"])
 def login():
