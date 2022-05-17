@@ -1,20 +1,23 @@
 {% extends "base.html" %} {% block title %} Results {% endblock %}
 {% block content %}
-<div class="container-fluid">
+<div class="container" align="center">
     <div class="row">
     {%for i in data%}
-        <div class="card bg-light mb-3" style="max-width: 18rem;">
-            <div class="card-header">
-                From: {{i.source}}
-            </div>
-            <div class="card-body text-center">
-                <h5 class="card-title">{{i.title}}</h5>
-                <h6 class="card-subtitle mb-2 text-muted">{{i.company}}</h6>
-                <p class="card-text">{{i.location}}</p>
-                <a href={{i.url}} class="btn btn-primary" target="_blank">Link</a>
-            </div>
-            <div class="card-footer">
-                <small class="text-muted">Posted {{i.posted}} Days Ago</small>
+        <div class="col">
+            <div class="card bg-light mb-3" style="min-width: 15rem; min-height: 18rem;">
+                <div class="card-header">
+                    From: {{i.source}}
+                </div>
+                <div class="card-body text-center">
+                    <h5 class="card-title">{{i.title}}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">{{i.company}}</h6>
+                    <p class="card-text">{{i.location}}</p>
+                    <a href={{i.url}} class="btn btn-info" target="_blank">Link</a>
+                    <a href='#' class="btn btn-success" target="_blank">Save</a>
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted">Posted {{i.posted}} Days Ago</small>
+                </div>
             </div>
         </div>
     {%endfor%}
