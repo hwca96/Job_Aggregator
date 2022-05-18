@@ -1,6 +1,6 @@
 from flask import Blueprint, redirect, render_template, request, url_for, flash
 import main_scraper
-from website.models import User
+from website.models import SavedJob, User
 from werkzeug.security import generate_password_hash, check_password_hash
 from . import db
 from flask_login import login_user, login_required, logout_user, current_user
@@ -21,6 +21,14 @@ def results():
     search = request.args['search']
     location = request.args['location']
     data = main_scraper.get_all_data(search, location)
+    # Part of implementation of saving jobs from the list of results
+    # if request.method == 'POST':
+    #     saved_job = request.form['card']['card-body']
+    #     print(saved_job)
+    #     # new_saved = SavedJob(title=saved_job, user_id=current_user.id)
+    #     # db.session.add(new_saved)
+    #     # db.session.commit()
+    #     # flash("Job Saved", category='success')
     return render_template("results.html", data = data, user=current_user)
 
 @views.route('/login', methods = ["POST", "GET"])
