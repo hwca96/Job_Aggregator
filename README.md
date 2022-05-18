@@ -49,13 +49,13 @@
 <h3>Home Page</h3>
 <div align="center">
   <a href="https://github.com/hwca96/Job_Aggregator">
-    <img src="website/static/job_aggregator_home.jpg">
+    <img src="website/static/job_aggregator_home.JPG">
   </a>
 </div>
 <h3>Results Page</h3>
 <div align="center">
   <a href="https://github.com/hwca96/Job_Aggregator">
-    <img src="website/static/job_aggregator_results.jpg">
+    <img src="website/static/job_aggregator_results.JPG">
   </a>
 </div>
 
