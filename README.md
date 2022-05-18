@@ -61,11 +61,11 @@
 
 This project was inspired by my own stuggles in job search as a student and also from my partner's job as a digital literacy specialist helping new immigrants with the technological hurdles when searching for jobs online.
 
-There are a large number of job search platforms on the internet and navigating them can be difficult and time consuming. Most jobs are usually only posted on one platfrom so a job seeker must manage multiple platforms to see all the opportunities avaialable online.
+There are a large number of job search platforms on the internet. Navigating them can be difficult and time consuming. Most jobs are usually only posted on one platfrom so a job seeker must manage multiple websites and accounts to see all the opportunities avaialable online.
 
 Online job search should not a tediou task that requires signing up multiple times and navigating multiple platforms. This web application aims to simplify the job search experience by accumulating job search results from several large platforms and display the most important job information to the user.
 
-Future plans for this site will be to add more job platforms, allow logged in users to save jobs for later, and incorporate company reviews and salary information for applicants to further simplify the online job search experience.
+Future plans for this site will be to add more job platforms, allow logged in users to save jobs for later, and incorporate company reviews and salary information to further simplify the online job search experience.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -80,18 +80,6 @@ Future plans for this site will be to add more job platforms, allow logged in us
 * [Bootstrap](https://getbootstrap.com)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
-
-
-
-<!-- USAGE EXAMPLES -->
-## Usage
-
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
-
-_For more examples, please refer to the [Documentation](https://example.com)_
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
 
 
 <!-- ROADMAP -->
@@ -109,8 +97,6 @@ See the [open issues](https://github.com/hwca96/Job_Aggregator/issues) for a ful
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-
-
 <!-- CONTRIBUTING -->
 ## Contributing
 
@@ -118,9 +104,7 @@ This is my first personal project that I am personally passionate about. I still
 
 Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
-
 <p align="right">(<a href="#top">back to top</a>)</p>
-
 
 <!-- CONTACT -->
 ## Contact
@@ -131,7 +115,6 @@ Project Link: [https://github.com/hwca96/Job_Aggregator](https://github.com/hwca
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
 
@@ -139,7 +122,6 @@ Project Link: [https://github.com/hwca96/Job_Aggregator](https://github.com/hwca
 * [Best-README-Template](https://github.com/othneildrew/Best-README-Template)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
-
 
 
 <!-- MARKDOWN LINKS & IMAGES -->
