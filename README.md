@@ -61,7 +61,7 @@
 
 This project was inspired by my own stuggles in job search as a student and also from my partner's job as a digital literacy specialist helping new immigrants with the technological hurdles when searching for jobs online.
 
-There are a large number of job search platforms on the internet. Navigating them can be difficult and time consuming. Most jobs are usually only posted on one platfrom so a job seeker must manage multiple websites and accounts to see all the opportunities avaialable online.
+There are a large number of job search platforms on the internet. Navigating them can be difficult and time consuming. Most jobs are usually only posted on one platfrom so a job seeker must manage multiple websites and accounts to see all the opportunities available online.
 
 Online job search should not a tediou task that requires signing up multiple times and navigating multiple platforms. This web application aims to simplify the job search experience by accumulating job search results from several large platforms and display the most important job information to the user.
 
